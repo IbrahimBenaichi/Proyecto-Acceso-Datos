@@ -1,0 +1,37 @@
+<% include ../partials/_header %>
+
+<div class="container centrado">
+    <div class="row mar_carta">
+        <!--FORM-->
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body m-5">
+                    <h2>Buzón de Sugerencias</h2>
+                    <form action="/sugerencia" method="post" class="mt-3">
+                        <div class="form-group">
+                            <label for="sugerencia">Sugerencia:</label>
+                            <textarea class="form-control" id="sugerencia" name="sugerencia" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" onclick="mostrarMensaje()">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%if(enviado){%>
+        <div id="password" class="card centrado_total succesfull">
+            <div class="card-body m-4">
+                <h2>La sugerencia ha sido enviada</h2>
+                <button
+                    type="submit"
+                    class="btn btn-success btn-lg btn-block"
+                    onclick="nonepasswordmensaje()">
+                    Valep
+                  </button>
+            </div>
+        </div>
+    <%}%>
+</div>
+
+<% include ../partials/_footer %>

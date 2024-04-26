@@ -1,0 +1,101 @@
+<% include ../partials/_header %>
+
+  <div class="container centrado">
+    <div class="row mar_carta">
+      <!--FORM-->
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-body">
+            <form action="/usuarios/add" method="post">
+              <div class="form-group">
+                <input class="form-control" type="text" name="nombre" placeholder="Nombre" required>
+              </div>
+              <div class="form-group">
+                <input class="form-control" type="text" name="apellidos" placeholder="apellidos" required>
+              </div>
+              <div class="form-group" >
+                <select  id="selectBox" onchange="changeFunc();" name="rol" class="form-control" type="select" required>
+                  <option value="" hidden selected>Selecciona un Rol</option>
+                  <option value="Administrador">Administrador</option>
+                  <option value="Profesor">Profesor</option>
+                  <option value="Alumno">Alumno</option>
+                </select>
+              </div>
+
+                <div class="form-group">
+                  <input class="form-control" type="text" name="email" placeholder="email" required>
+                </div>
+              
+              <div class="form-group">
+                <input class="form-control" type="text" name="password" placeholder="password" required>
+              </div>
+
+              <div class="form-group" id="divplanEstudio">
+                <select  id="planEstudio" onchange="changeFunc2();" name="planEstudio" class="form-control" type="select" required>
+                  <option value="" hidden selected>Selecciona un Planes de estudio</option>
+                  <option value="Grado">Grado</option>
+                  <option value="Master">Master</option>
+                  <option value="Doctorado">Doctorado</option>
+                </select>
+              </div>
+              
+              <div id="asigGrado" class="form-group">
+                <label for="asignaturas">Asignaturas Grado</label>
+                <select name="asignaturas" id="asignaturas" class="form-control" multiple>
+                  <% for(var i=0; i < asignaturas.length; i++) { %>
+                    <% if(asignaturas[i].planEstudios == "Grado") { %>
+                    <option value="<%= asignaturas[i]._id %>">
+                      <%= asignaturas[i].nombre %>
+                    </option>
+                    <% } %>
+                  <% } %>
+                </select>
+              </div>
+
+              <div id="asigMaster" class="form-group">
+                <label for="asignaturas">Asignaturas Master</label>
+                <select name="asignaturas" id="asignaturas" class="form-control" multiple>
+                  <% for(var i=0; i < asignaturas.length; i++) { %>
+                    <% if(asignaturas[i].planEstudios == "Master") { %>
+                    <option value="<%= asignaturas[i]._id %>">
+                      <%= asignaturas[i].nombre %>
+                    </option>
+                    <% } %>
+                  <% } %>
+                </select>
+              </div>
+
+              <div id="asigDoctorado" class="form-group">
+                <label for="asignaturas">Asignaturas Doctorado</label>
+                <select name="asignaturas" id="asignaturas" class="form-control" multiple>
+                  <% for(var i=0; i < asignaturas.length; i++) { %>
+                    <% if(asignaturas[i].planEstudios == "Doctorado") { %>
+                    <option value="<%= asignaturas[i]._id %>">
+                      <%= asignaturas[i].nombre %>
+                    </option>
+                    <% } %>
+                  <% } %>
+                </select>
+              </div>
+              <div class="form-group">
+              <button class="btn btn-primary" type="submit">
+                Add
+              </button>
+              </div>
+            </form>
+            <div class="form-group centrado">
+            <form action='/usuarios/addUserCSV' method="POST" enctype="multipart/form-data"> 
+              <input type="file" name="file"> 
+              <button class="btn btn-primary" type="submit">
+                Agregar por CSV
+              </button>
+            </form> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>  
+  </div>    
+
+
+<% include ../partials/_footer %>

@@ -1,0 +1,49 @@
+<% include ../partials/_header %>
+
+<div class="container centrado_total">
+    <div class="row mar_carta">
+      <% if (user.rol == "Administrador" ) { %>
+        <!--FORM-->
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-body">
+              <form action="/asignaturas/add" method="post">
+                <div class="form-group pb-2">
+                  <input class="form-control " required type="text" name="nombre" placeholder="Nombre">
+                </div>
+                <div class="form-group">
+                  <select name="planEstudios" id="planEstudios" class="form-control" required>
+                    <option  value="" hidden selected>Plan de estudio</option>
+                      <option value="Grado">Grado</option>
+                      <option value="Master">Master</option>
+                      <option value="Doctorado">Doctorado</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <input class="form-control" required type="number" name="cuatrimestre" min="1" max="4" placeholder="Cuatrimestre">
+                </div>
+                <div class="form-group">
+                  <input class="form-control" required type="number" name="curso" min="1" max="2" placeholder="Curso">
+                </div>
+                <div class="form-group">
+                  <button class="btn btn-primary" type="submit">
+                    Add
+                  </button>
+                </div>
+              </form>
+              <div class="form-group centrado">
+                <form action='/asignaturas/addAsignaturaCSV' method="POST" enctype="multipart/form-data"> 
+                  <input type="file" name="file"> 
+                  <button class="btn btn-primary" type="submit">
+                    Agregar por CSV
+                  </button>
+                </form> 
+              </div>
+            </div>
+          </div>
+        </div>
+        <% } %>
+    </div>
+</div>
+
+<% include ../partials/_footer %>

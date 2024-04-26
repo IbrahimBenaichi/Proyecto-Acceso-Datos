@@ -1,0 +1,112 @@
+h1 .error{
+  text-align: center;
+  color:red;
+}
+
+
+body{
+  background-image: url('../img/azu.avif'); 
+  background-size: cover; 
+  background-position: center; 
+  background-attachment: fixed;
+  font-size: 18px;
+}
+
+.hola{
+  background-color: #5499c7;
+}
+
+p .msing{
+  color:red;
+}
+
+.fondo_negro{
+  background: rgb(32, 32, 32);
+}
+.fondo_gris{
+  background-color: #c2c2c2;
+}
+.color-primario{
+  background-color: #5499c7;
+}
+.fondo_blanco{
+  background-color: white;
+}
+
+.divider:after,
+.divider:before {
+content: "";
+flex: 1;
+height: 1px;
+background: #eee;
+}
+
+.caret {
+  display: none;
+}
+.btn-group .multiselect {
+  border: 1px solid #ced4da;
+}
+
+.centrado{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.centrado_total{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+th{
+  text-align: center;
+}
+table{
+  border-radius: 10px;
+  background-color: white !important;
+  border-color: transparent !important;
+}
+table th{
+  border-color: transparent !important;
+
+}
+
+.max_width{
+  max-width: 100%;
+}
+
+.invisible{
+  display: none;
+}
+
+.succesfull{
+  border: solid 5px green;
+}
+
+.error{
+  border: solid 5px maroon;
+}
+
+@media (min-width: 992px){
+  .mar_carta{
+    margin-left: 15%;
+    margin-right: 15%;
+  }
+  .container{
+    max-width: 1000px  !important;
+  }
+}
+
+@media (min-width: 768px){
+  body{
+  }
+}
+
+@media (max-width: 992px){
+  .col-md-8 {
+      flex: 0 0 auto;
+      width: 100% !important; 
+  }
+}
